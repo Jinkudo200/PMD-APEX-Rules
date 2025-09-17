@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="Custom Apex Ruleset"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.github.io/pmd-7.17.0/ruleset_xml_schema.xsd">
+
+    <description>
+        Salesforce Apex ruleset with custom security rules (Hardcoded secrets)
+    </description>
+
+
+    <!-- ========================== -->
+    <!-- 2. Custom Java Rule -->
+    <!-- ========================== -->
+    <rule name="Custom-Hardcoded-Secrets"
+          language="apex"
+          class="rules.HardcodedSecretsRule"
+          message="Hardcoded secret, API key, password, or token found.">
+        <priority>2</priority>
+    </rule>
+
+    <rule name="Custom-Deprecated-Methods"
+    language="apex"
+    class="rules.DeprecatedMethodsRule"
+    message="Usage of deprecated or insecure library method detected.">
+  <priority>2</priority>
+</rule>
+
+<rule name="Custom-Insecure-Deserialization"
+    language="apex"
+    class="rules.InsecureDeserializationRule"
+    message="Unvalidated JSON.deserialize call detected.">
+  <priority>1</priority>
+</rule>
+
+<rule name="Custom-Insecure-XMLParser"
+    language="apex"
+    class="rules.InsecureXMLParserRule"
+    message="Insecure XML parser usage detected. Consider secure parsing options.">
+  <priority>2</priority>
+</rule>
+
+
+</ruleset>
