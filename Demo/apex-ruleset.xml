@@ -10,35 +10,64 @@
 
 
     <!-- ========================== -->
-    <!-- 2. Custom Java Rule -->
+    <!-- 1. Hardcoded Secrets & Named Credentials -->
     <!-- ========================== -->
-    <rule name="Custom-Hardcoded-Secrets"
+    <rule name="Hardcoded-Secrets-And-Named-Credentials-Rule"
           language="apex"
-          class="rules.HardcodedSecretsRule"
+          class="rules.HardcodedSecretsAndNamedCredentialsRule"
           message="Hardcoded secret, API key, password, or token found.">
         <priority>2</priority>
     </rule>
 
-    <rule name="Custom-Deprecated-Methods"
-    language="apex"
-    class="rules.DeprecatedMethodsRule"
-    message="Usage of deprecated or insecure library method detected.">
-  <priority>2</priority>
-</rule>
+    <!-- ========================== -->
+    <!-- 2. Sensitive Logging & Monitoring -->
+    <!-- ========================== -->
+    <rule name="Sensitive-Logging-And-Monitoring-Enhanced-Rule"
+          language="apex"
+          class="rules.SensitiveLoggingAndMonitoringEnhancedRule"
+          message="Sensitive data or PII logged in debug output.">
+        <priority>2</priority>
+    </rule>
 
-<rule name="Custom-Insecure-Deserialization"
-    language="apex"
-    class="rules.InsecureDeserializationRule"
-    message="Unvalidated JSON.deserialize call detected.">
-  <priority>1</priority>
-</rule>
+    <!-- ========================== -->
+    <!-- 3. Insecure Deserialization -->
+    <!-- ========================== -->
+    <rule name="Insecure-Deserialization-Enhanced-Rule"
+          language="apex"
+          class="rules.InsecureDeserializationEnhancedRule"
+          message="Unsafe deserialization of untrusted input detected.">
+        <priority>2</priority>
+    </rule>
 
-<rule name="Custom-Insecure-XMLParser"
-    language="apex"
-    class="rules.InsecureXMLParserRule"
-    message="Insecure XML parser usage detected. Consider secure parsing options.">
-  <priority>2</priority>
-</rule>
+    <!-- ========================== -->
+    <!-- 4. Weak Authentication & Sharing -->
+    <!-- ========================== -->
+    <rule name="Weak-Auth-And-Sharing-Rule"
+          language="apex"
+          class="rules.WeakAuthAndSharingRule"
+          message="Class or method allows insecure sharing or weak authentication.">
+        <priority>2</priority>
+    </rule>
+
+    <!-- ========================== -->
+    <!-- 5. SOQL Injection -->
+    <!-- ========================== -->
+    <rule name="SOQL-Injection-Taint-Rule"
+          language="apex"
+          class="rules.SoqlInjectionTaintRule"
+          message="Potential SOQL injection detected. Validate or escape input.">
+        <priority>1</priority>
+    </rule>
+
+    <!-- ========================== -->
+    <!-- 6. Command Injection & Schedule -->
+    <!-- ========================== -->
+    <rule name="Command-Injection-And-Schedule-Rule"
+          language="apex"
+          class="rules.CommandInjectionAndScheduleRule"
+          message="Unsafe command execution or scheduled job with untrusted input detected.">
+        <priority>2</priority>
+    </rule>
 
 
 </ruleset>
